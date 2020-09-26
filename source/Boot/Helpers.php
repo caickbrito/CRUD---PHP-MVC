@@ -94,7 +94,7 @@ function theme(string $path = null): string
 function asset(string $path, $time = true): string
 {
     $file = ROOT."/themes/agenda/assets/{$path}";
-    $fileOnDir = dirname(__DIR__, 1)."themes/ALTERAR/assets/{$path}";
+    $fileOnDir = dirname(__DIR__, 1)."themes/crud/assets/{$path}";
     
     if($time && file_exists($fileOnDir)) {
         $file .= "?time=" . filemtime($fileOnDir);
@@ -125,4 +125,15 @@ function flash(string $type = null, string $message = null): ?string
 } 
 
 
+
+
+
+/**
+ * @param string $email
+ * @return bool
+ */
+function is_email(string $email): bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
 
