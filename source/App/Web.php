@@ -5,7 +5,7 @@ namespace Source\App;
 use Source\Core\Connect;
 use Source\Core\Controller;
 use Source\Support\Pager;
-use Source\Models\Contacts;
+use Source\Models\Contact;
 
 
 
@@ -28,6 +28,14 @@ class Web extends Controller
 
     public function home($data): void
     {
+    	$head = $this->seo->render(
+            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            CONF_SITE_DESC
+        ); 
+
+    	$contacts = (new Contact())->find()->fetch(true);
+    	$paginator = new Pager("https://www.localhost/projetos/CRUD/");
+    	$paginator->pager($contacts->count(), 5, ($data["page"] ?? 1), 2);
     	echo $this->view->render('home', [
     		"title" => "Bem vindo a sua agenda de contatos.", 
     		""]);

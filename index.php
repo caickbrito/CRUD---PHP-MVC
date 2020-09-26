@@ -5,7 +5,7 @@ require __DIR__.'/vendor/autoload.php';
 
 use CoffeeCode\Router\Router;
 
-$router = Router(ROOT);
+$router = new Router(ROOT);
 $router->namespace('Source\App');
 
 //Rotas Principais// 
@@ -31,7 +31,7 @@ $router->dispatch();
 
 //Redirecionamento de erros
 if ($router->error()) {
-	$router->redirect("/erro;{$router->error()}")
+	$router->redirect("/erro/{$router->error()}");
 }
 
 ob_end_flush();
