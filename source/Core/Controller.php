@@ -18,11 +18,7 @@ abstract class Controller
 	/**
 	 * @var Engine
 	 */
-	protected $view;
-	/**
-	 * @var Optimizer
-	 */
-	protected $seo;
+	protected $view;	
 	/**
 	 * @var Router
 	 */
@@ -36,8 +32,7 @@ abstract class Controller
 	function __construct($router)
 	{
 		$this->router = $router;
-		$this->view = Engine::create(__DIR__."/../../themes/" . CONF_VIEW_THEME . "/", 'php');
-		$this->seo = new Seo();
+		$this->view = Engine::create(__DIR__."/../../themes/" . CONF_VIEW_THEME . "/", 'php');		
 		$this->view->addData(["router" => $this->router]);
 	}	 
 
