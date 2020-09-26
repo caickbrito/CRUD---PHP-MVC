@@ -1,1 +1,1 @@
-<h1>Olá mundo.</h1>
+<?php $v->layout("_theme.php"); ?>
