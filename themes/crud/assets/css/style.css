@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: rgba(212,228,239,1);
+	background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
+	background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -o-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: -ms-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	background: linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
+}
+
+.row {
+	margin: 0;  
+}
+
+.container{
+	padding: 70px 0px;
+
+}
+
+.table{	
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+
+p, li{
+	color: #444;
+}
+
+#email-table{
+	padding-left: 63px;
+}
+
+#btn-editar{
+	margin-left: 20px;
+}
+
+#form-contact .form-control{
+	width: 50%;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+#btn-form{
+	margin-left: 15px;
+}
+
+.btn-add{
+	position: relative;
+	bottom: 75px;
+
+}
+
+#btn-excluir{
+	margin-right: 20px;
+}
+
+#form-area {
+	padding: 45px;
+}
+
+.paginator {
+	list-style: none;
+	padding: 0;
+}
+
+.paginator_item {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 4px 12px;
+	background: #ccc;
+	color: black;
+	text-decoration: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.paginator_item:hover {
+	background: #444;
+	color: #fff;
+
+}
+
+.paginator_active,
+.paginator_active:hover {
+	background: #cccccc;
+}
+
+
+.div-paginator{
+	position: relative;
+	bottom: 56px;
+}

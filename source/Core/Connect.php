@@ -4,6 +4,9 @@
 namespace Source\Core;
 
 
+use PDO;
+use PDOException;
+
 /**
  * Conexão com Banco de Dados
  */
@@ -19,14 +22,17 @@ class Connect
         \PDO::ATTR_CASE => \PDO::CASE_NATURAL
     ];
 
-    /**
-     * summary
+    /**     
      *
-     * @return \PDO
+     * @var \PDO
      */
     private static $instance;
 
-    public function getInstance()
+    /**     
+     * @return \PDO
+     */
+
+    public static function getInstance(): ?\PDO
     {
     	if (empty(self::$instance)) {
     		try {
@@ -36,6 +42,7 @@ class Connect
     				CONF_DB_PASS,
     				self::OPTIONS
     			);
+
     		} catch (\PDOException $exception) {
     			redirect("/ops/problemas");
     		}

@@ -24,6 +24,10 @@ class ComposerStaticInitf6d7760ae1135dbded21f12aee00d4ce
         array (
             'Source\\' => 7,
         ),
+        'P' => 
+        array (
+            'Plasticbrain\\FlashMessages\\' => 27,
+        ),
         'L' => 
         array (
             'League\\Plates\\' => 14,
@@ -32,6 +36,7 @@ class ComposerStaticInitf6d7760ae1135dbded21f12aee00d4ce
         array (
             'CoffeeCode\\Router\\' => 18,
             'CoffeeCode\\Paginator\\' => 21,
+            'CoffeeCode\\DataLayer\\' => 21,
         ),
     );
 
@@ -39,6 +44,10 @@ class ComposerStaticInitf6d7760ae1135dbded21f12aee00d4ce
         'Source\\' => 
         array (
             0 => __DIR__ . '/../..' . '/source',
+        ),
+        'Plasticbrain\\FlashMessages\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/plasticbrain/php-flash-messages/src',
         ),
         'League\\Plates\\' => 
         array (
@@ -51,6 +60,10 @@ class ComposerStaticInitf6d7760ae1135dbded21f12aee00d4ce
         'CoffeeCode\\Paginator\\' => 
         array (
             0 => __DIR__ . '/..' . '/coffeecode/paginator/src',
+        ),
+        'CoffeeCode\\DataLayer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coffeecode/datalayer/src',
         ),
     );
 

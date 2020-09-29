@@ -93,7 +93,7 @@ function theme(string $path = null): string
  */
 function asset(string $path, $time = true): string
 {
-    $file = ROOT."/themes/agenda/assets/{$path}";
+    $file = ROOT."/themes/crud/assets/{$path}";
     $fileOnDir = dirname(__DIR__, 1)."themes/crud/assets/{$path}";
     
     if($time && file_exists($fileOnDir)) {

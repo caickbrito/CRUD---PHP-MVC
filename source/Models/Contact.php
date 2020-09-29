@@ -1,39 +1,56 @@
 <?php 
 namespace Source\Models;
 
-use Source\Core\Model;
 
+use CoffeeCode\DataLayer\DataLayer;
+use CoffeeCode\DataLayer\Connect;
+use Exception;
 
 
 /**
  * @Caick Brito
  * Model contact
  */
-class Contact extends Model
+class Contact extends DataLayer
 {
     /**
      * Contact Constructorr
      */
     public function __construct()
     {
-        parent::__construct("contatos", ["id"], ["name", "phone"]);
+        parent::__construct('contatos', ['name', 'phone'], 'id', false);
+    }   
+    
+
+    public function findByName(string $name, string $columns = "*"): ?Model
+    {
+    	$find = $this->find("name = :name", "name={$name}", $columns);
+    	
+    	return $find->fetch();
     }
 
+    public function findByPhone(int $phone, string $columns = "*"):?Model
+    {
+    	$find = $this->find("phone = :phone", "phone={$phone}", $columns);
+
+    	return $find->fetch();
+    }
 
     /**
      * Save
      * @return null|Contact
      */
-    public function save()
-    {
+    public function save(): bool
+    {           
     	if (!$this->required()) {
-    		$this->message->warning("Nome e Telefone não podem ficar em branco.");
+    		$this->fail = new Exception("Nome e Telefone não podem ficar em branco.");                       
     		return false;
     	}
 
-    	if (!is_email($this->email)) {
-            $this->message->warning("O e-mail informado não tem um formato válido");
-            return false;
-        }
+        if (!parent::save()) {            
+            return false;            
+        }    	
+        
+        return true;
     }
 }
