@@ -13,6 +13,8 @@
 	<script src="https://kit.fontawesome.com/c975c3f558.js" crossorigin="anonymous"></script>
 	<!-- CSS -->
 	<link rel="stylesheet" href="<?= asset("/css/style.css"); ?>">
+		<link rel="stylesheet" href="<?= asset("/css/style.css"); ?>">
+
 	<!-- Title Controller -->
 	<title><?= $title; ?></title>
 </head>

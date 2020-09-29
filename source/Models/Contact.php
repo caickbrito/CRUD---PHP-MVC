@@ -41,16 +41,33 @@ class Contact extends DataLayer
      * @return null|Contact
      */
     public function save(): bool
-    {           
-    	if (!$this->required()) {
-    		$this->fail = new Exception("Nome e Telefone não podem ficar em branco.");                       
-    		return false;
-    	}
+    {           	
+        if (!$this->validateEmail() ||
+            !parent::save()) {
+            return false;
+    }        
+    return true;
+}
 
-        if (!parent::save()) {            
-            return false;            
-        }    	
-        
-        return true;
+public function validateEmail(): bool
+{
+    if (empty($this->email || filter_var($this->email, FILTER_VALIDATE_EMAIL))) {
+        $this->fail = new Exception("Informe um email válido!");
+        require false;
     }
+
+    $userByEmail = null;
+    if (!$this->id) {
+        $userByEmail = $this->find("email = :e", "e={$this->email}")->count();
+    }else {
+        $userByEmail = $this->find("email = :e AND id != :id", "e={$this->email}&id={$this->id}")->count();
+    }
+
+    if ($userByEmail) {
+        $this->fail = new Exception("O email informado já existe!");
+        return false;
+    }
+
+    return true;
+}
 }

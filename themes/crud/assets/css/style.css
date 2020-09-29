@@ -43,9 +43,9 @@ p, li{
 }
 
 #form-contact .form-control{
-	width: 50%;
+	width: 100%;
 	margin-bottom: 15px;
-	margin-left: 15px;
+	
 }
 
 #btn-form{
@@ -99,3 +99,18 @@ p, li{
 	position: relative;
 	bottom: 56px;
 }
+
+
+#form-modal input{
+	margin-bottom: 15px;
+}	
+
+#btn-form{
+	width: 95%;
+}
+
+
+.container-table{
+	width: 100%;
+}
+

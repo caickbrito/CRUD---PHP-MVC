@@ -37,7 +37,7 @@ class Web extends Controller
 
         $contacts = (new Contact())->find();
         $paginator = new Pager("https://www.localhost/projetos/CRUD/");
-        $paginator->pager($contacts->count(), 2, ($data["page"] ?? 1), 2);
+        $paginator->pager($contacts->count(), 4, ($data["page"] ?? 1), 2);
 
         echo $this->view->render('home', [
           "title" => "Bem vindo | " . CONF_SITE_TITLE, 
@@ -52,16 +52,21 @@ class Web extends Controller
         $data = filter_var_array($data, FILTER_SANITIZE_STRIPPED);
         $email = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
 
-
         $contact = new Contact();
-
         $contact->name = $data['name'];
         $contact->last_name = $data['last_name'];
         $contact->email = $email;
         $contact->phone = $data['phone'];
 
-        $contact->save();
+        $msg = new FlashMessages();
 
+        if (!$contact->save()) {            
+            $msg->error($contact->fail->getMessage());
+            $this->router->redirect('web.home');
+            return;
+        }
+
+        $msg->success("Contato cadastrado com sucesso.");
         $this->router->redirect("web.home");
     }
 
@@ -71,7 +76,7 @@ class Web extends Controller
 
         $contact = (new Contact())->find("id = :id", "id={$id}")->fetch();
 
-        
+        $msg = new FlashMessages();
         $form = new stdClass();
         $form->id = $contact->id;
         $form->name = $contact->name;
@@ -81,7 +86,8 @@ class Web extends Controller
 
         echo $this->view->render("edit", [
             "title" => "Editando contato de " . $contact->name,
-            "form" => $form]);
+            "form" => $form,
+            "msg" => $msg->display()]);
     }
 
     public function editPost(array $data): void
@@ -96,11 +102,18 @@ class Web extends Controller
         $contact->email = $email;
         $contact->phone = $data['phone'];
 
-        $contact->save();
-        $msg = new FlashMessages();
-        $msg->success("Contato atualizado com sucesso.");
+        if (!$contact->save()) {
+            $msg = new FlashMessages();
+            $msg->error($contact->fail->getMessage());
 
-        $this->router->redirect("web.home");
+            $this->router->redirect('web.edit', ['id' => $contact->id]);
+
+        }else {
+            $msg = new FlashMessages();
+            $msg->success("Contato atualizado com sucesso.");            
+            $this->router->redirect('web.home');
+        }        
+
     }
 
     public function delete(array $data): void

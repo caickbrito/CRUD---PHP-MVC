@@ -5,13 +5,8 @@
 
 <div class="container d-flex justify-content-center" id="table-container">
 	<div class="row">			
-		<div class="col-md-6">
-			<h2>Lista de contatos:</h2>
-			<?php if($msg): ?>
-				<div class="alert alert-success" role="alert">
-					<?= $msg; ?>
-				</div>
-			<?php endif; ?>
+		<div class="container-table">
+			<h2>Lista de contatos:</h2>			
 				<?php if (!$users): ?>
 					<h3>Não existem contatos cadastrados!</h3>				
 					<?php else: ?>
@@ -59,7 +54,7 @@
 					<button class="close" type="button" data-dismiss="modal"><span>x</span></button>
 				</div>
 				<div class="modal-body">
-					<form  id="form-contact" action="<?= $router->route("web.registerPost"); ?>" method="POST">
+					<form  id="form-modal" action="<?= $router->route("web.registerPost"); ?>" method="POST">
 						<div class="login_form_callback"></div>
 						<input id="id" name="id" type="hidden">
 						<input type="text" name="name" placeholder="Nome" class="form-control">
