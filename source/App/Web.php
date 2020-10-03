@@ -10,22 +10,11 @@ use Plasticbrain\FlashMessages\FlashMessages;
 use stdClass;
 if (!session_id()) @session_start();
 
-
-
-// $page = filter_input(INPUT_GET, "page", FILTER_VALIDATE_INT);
-
-
-
-
 /**
  * App controller
  */
 class Web extends Controller
 {
-
-    /**
-     * construct
-     */
     public function __construct($router)
     {    	
     	parent::__construct($router);    	
@@ -125,9 +114,7 @@ class Web extends Controller
         if ($contact->destroy()) {
             $msg = new FlashMessages();
             $msg->success("Contato excluído com sucesso.");
-        };
-
-        
+        };        
 
         $this->router->redirect("web.home");
 

@@ -29,11 +29,7 @@ define("DATA_LAYER_CONFIG", [
 
 /* SITE ROOT */
 define('SITE', "#Contatos");
-
 define("ROOT", "https://www.localhost/projetos/CRUD");
-
-
-
 
  /**
  * VIEW
@@ -64,7 +60,6 @@ define("CONF_SOCIAL_GOOGLE_PAGE", "3066718333396481");
 define("CONF_SOCIAL_GOOGLE_AUTHOR", "3066718333396481");
 
 
-
 /**
  * SITE
  */
@@ -73,14 +68,3 @@ define("CONF_SITE_TITLE", "#Agenda");
 define("CONF_SITE_DESC", "Adicione seus contatos" );
 define("CONF_SITE_LANG", "pt_BR");
 define("CONF_SITE_DOMAIN", "https://www.localhost/projetos/CRUD");
-
-
-
-/**
- * MESSAGE
- */
-define("CONF_MESSAGE_CLASS", "trigger");
-define("CONF_MESSAGE_INFO", "info");
-define("CONF_MESSAGE_SUCCESS", "success");
-define("CONF_MESSAGE_WARNING", "warning");
-define("CONF_MESSAGE_ERROR", "error");

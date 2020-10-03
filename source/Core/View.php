@@ -5,7 +5,7 @@ namespace Source\Core;
 use League\Plates\Engine;
 
 /**
-  *
+ *
  * Caick Brito @Developer
  * @package Source\Core
  */

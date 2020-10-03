@@ -7,12 +7,6 @@ use Source\Support\Seo;
 use CoffeeCode\Source\Router;
 use League\Plates\Engine;
 
-/**
- * 
- *Controlador
- * 
- */
-
 abstract class Controller
 {
 	/**
@@ -24,9 +18,7 @@ abstract class Controller
 	 */
 	protected $router;
 
-	/**
-	 * Construtor do controle
-	 * @param string|null $pathToViews 
+	/* @param string|null $pathToViews 
 	 * @return type
 	 */
 	function __construct($router)
@@ -34,21 +26,5 @@ abstract class Controller
 		$this->router = $router;
 		$this->view = Engine::create(__DIR__."/../../themes/" . CONF_VIEW_THEME . "/", 'php');		
 		$this->view->addData(["router" => $this->router]);
-	}	 
-
-
-	/**
-	 * Resposta ajax
-	 * @param string $param 
-	 * @param array $values 
-	 * @return type
-	 */
-	public function ajaxResponse(string $param, array $values)
-	{
-		return json_encode([$param => $values]);
-	}
+	}	 	
 }
-
-
-
-

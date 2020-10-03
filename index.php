@@ -23,12 +23,8 @@ $router->group('erro');
 $router->get('/{errcode}', "Web:error");
 
 
-
-
 //Execução das rotas
 $router->dispatch();
-
-
 
 //Redirecionamento de erros
 if ($router->error()) {

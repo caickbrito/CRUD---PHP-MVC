@@ -12,10 +12,7 @@ use Exception;
  * Model contact
  */
 class Contact extends DataLayer
-{
-    /**
-     * Contact Constructorr
-     */
+{    
     public function __construct()
     {
         parent::__construct('contatos', ['name', 'phone'], 'id', false);
